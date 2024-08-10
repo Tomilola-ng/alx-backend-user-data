@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-""" Module of Index views
+""" 
+  Module of Index views
 """
 from flask import jsonify, abort
 from api.v1.views import app_views
@@ -24,3 +25,20 @@ def stats() -> str:
     stats = {}
     stats['users'] = User.count()
     return jsonify(stats)
+
+@app_views.route('/unauthorized', methods=['GET'], strict_slashes=False)
+def unauthorized() -> str:
+    """ GET /api/v1/unauthorized
+    Return:
+      - raises a 401 error by using abort
+    """
+    abort(401)
+
+
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def forbidden() -> str:
+    """ GET /api/v1/forbidden
+    Return:
+      - raises a 403 error by using abort
+    """
+    abort(403)
