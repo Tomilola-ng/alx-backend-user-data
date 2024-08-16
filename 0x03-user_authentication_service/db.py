@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-""" 
-    complete the DB class provided;
+
+"""
+    Complete the DB class provided;
     to implement the add_user method.
 """
 # pylint: disable=consider-iterating-dictionary
